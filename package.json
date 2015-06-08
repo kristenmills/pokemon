@@ -1,0 +1,33 @@
+{
+  "name": "pokemon",
+  "version": "1.0.0",
+  "description": "So we can play pokemon while we're not together",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kristenmills/pokemon.git"
+  },
+  "author": "Kristen Mills, Jesse Jurman, Ethan Jurman",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kristenmills/pokemon/issues"
+  },
+  "homepage": "https://github.com/kristenmills/pokemon#readme",
+  "dependencies": {
+    "autoprefixer-core": "^5.2.0",
+    "browserify": "^10.2.4",
+    "del": "^1.2.0",
+    "express": "^4.12.4",
+    "gulp": "^3.9.0",
+    "gulp-notify": "^2.2.0",
+    "gulp-postcss": "^5.1.8",
+    "gulp-stylus": "^2.0.3",
+    "react": "^0.13.3",
+    "reactify": "^1.1.1",
+    "require-dir": "^0.3.0",
+    "vinyl-source-stream": "^1.1.0"
+  }
+}
