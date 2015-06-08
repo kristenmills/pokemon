@@ -15,6 +15,7 @@ function text(response) {
 }
 
 function parseTSV(response) {
+  response = response.replace(/\r/g, "");
   var lines = response.trim().split('\n');
   var keys = lines[0].split('\t').map(function(key){
     return key.charAt(0).toLowerCase() + key.slice(1);
