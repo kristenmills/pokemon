@@ -24,7 +24,7 @@ require('./routes')();
 
 // error handlers
 
-app.use(function *errors(next) {
+app.use(function *(next) {
   try {
     yield next;
   } catch (err) {
