@@ -3,6 +3,7 @@ var bodyParser = require('koa-body');
 var logger = require('koa-logger');
 var cors = require('koa-cors');
 var jwt = require('koa-jwt');
+var static = require('koa-static');
 
 var env = process.env.NODE_ENV || 'development';
 
@@ -16,6 +17,7 @@ if(env === 'development') {
   app.use(logger());
 }
 
+app.use(static(path.join(__dirname, '..', 'dist')));
 app.use(bodyParser());
 
 require('./routes')();
