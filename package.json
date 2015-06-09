@@ -4,7 +4,7 @@
   "description": "So we can play pokemon while we're not together",
   "main": "index.js",
   "scripts": {
-    "start": "gulp build && node --harmony server/bin/www",
+    "start": "gulp --harmony start",
     "watch": "gulp --harmony"
   },
   "repository": {
