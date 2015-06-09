@@ -4,9 +4,9 @@ var sendFile = require('koa-send');
 var app = require('..');
 
 module.exports = function() {
-  app.use('/api/cards', require('./cards').routes());
+  app.use(require('./cards').routes());
   app.use(function *(next) {
-    if(this.is('html')){
+    if(this.accepts('html')){
       yield sendFile(this, path.join(__dirname, '..', '..', 'dist', 'index.html'));
     } else {
       yield next;

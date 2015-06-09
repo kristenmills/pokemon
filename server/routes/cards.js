@@ -1,5 +1,8 @@
 var fetch = require('node-fetch');
-var router = require('koa-router')();
+var Router = require('koa-router');
+var router = new Router({
+  prefix: '/api/cards'
+})
 
 function status(response) {
   if (response.status >= 200 && response.status < 300) {
@@ -30,8 +33,8 @@ function parseTSV(response) {
 
 //Just incase we want to add more routes in the future
 router
-  .use(function *(next) {
-    Promise
+  .get('/',  function *() {
+    this.body = yield Promise
       .all(
         [fetch('https://dl.dropboxusercontent.com/u/73204375/pokemon/carddata.txt')
           .then(status)
@@ -44,18 +47,11 @@ router
           .then(parseTSV)
         ]
       )
-      .then(function(cardData) {
-        this.cards = cardData.reduce(function(a, b) {
+      .then((cardData) => {
+        return cardData.reduce(function(a, b) {
           return a.concat(b);
         });
-        yield next;
-      })
+      });
   });
-
-router
-  .route('/')
-    .get(function *() {
-      this.body = this.cards;
-    });
 
 module.exports = router;

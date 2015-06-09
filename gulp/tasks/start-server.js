@@ -1,8 +1,13 @@
 var gulp = require('gulp');
+var nodemon = require('gulp-nodemon');
 var app = require('../../server');
 
 gulp.task('start-server', function() {
-  var server = app.listen(process.env.PORT || 3000, function() {
-    console.log('Express server listening on port ' + server.address().port);
-  });
+  nodemon({
+    script: 'server/bin/www',
+    ext: 'js',
+    env: { 'NODE_ENV': 'development' },
+    nodeArgs: ['--harmony']
+  })
+
 });
