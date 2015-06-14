@@ -10,10 +10,10 @@ var env = process.env.NODE_ENV || 'development';
 
 var app = module.exports = koa();
 
-// var keys = require('./helpers/keys');
+var keys = require('./config/keys');
 
 app.use(cors());
-// app.use(jwt({algorithms: ['RS256','RS384','RS512' ], secret: keys.pub}).unless({ path: ['/api/token'] }));
+app.use(jwt({secret: keys.pub}).unless({ path: ['/api/token'] }));
 if(env === 'development') {
   app.use(logger());
 }

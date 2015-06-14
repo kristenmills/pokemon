@@ -6,6 +6,7 @@
   "scripts": {
     "start": "gulp --harmony start",
     "watch": "gulp --harmony",
+    "keygen": "node --harmony server/keygen.js",
     "db_setup": "node --harmony server/db/setup.js"
   },
   "repository": {
@@ -28,6 +29,7 @@
     "gulp-notify": "^2.2.0",
     "gulp-postcss": "^5.1.8",
     "gulp-stylus": "^2.0.3",
+    "keypair": "^1.0.0",
     "koa": "^0.21.0",
     "koa-body": "^1.2.1",
     "koa-cors": "0.0.16",

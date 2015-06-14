@@ -1,6 +1,6 @@
 var Promise = require('bluebird');
 
-var r = require('rethinkdbdash')({db: 'pokemon'});
+var r = require('./rethink');
 var args = process.argv.slice(2);
 
 Promise.coroutine(function *() {
