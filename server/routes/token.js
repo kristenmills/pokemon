@@ -72,9 +72,11 @@ router
             facebookId: json.id,
             name: json.name
           }
-          return User.findOrCreateByFacebookId(user).then(signAndSend)
+          return User.findOrCreateByFacebookId(user);
 
-        }).catch(function(e) {
+        })
+        .then(signAndSend)
+        .catch(function(e) {
           ctx.throw(401, 'Invalid response from facebook');
         });
     }
