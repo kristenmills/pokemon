@@ -1,6 +1,6 @@
 var Promise = require('bluebird');
 
-var r = require('rethinkdbdash')({db: 'pokemon'});
+var r = require('rethinkdbdash')({servers: [{host: '192.168.116.131'}],  db: 'pokemon'});
 var args = process.argv.slice(2);
 
 Promise.coroutine(function *() {

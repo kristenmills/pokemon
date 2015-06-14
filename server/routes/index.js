@@ -5,6 +5,7 @@ var app = require('..');
 
 module.exports = function() {
   app.use(require('./cards').routes());
+  app.use(require('./token').routes());
   app.use(function *(next) {
     if(this.accepts('html')){
       yield sendFile(this, path.join(__dirname, '..', '..', 'dist', 'index.html'));
